@@ -32,7 +32,8 @@ int main (){
 	cout << "Enemy is now at " << enemyHealth << endl;    
 	
 	if(enemyHealth <= 0){
-	 winner = playerName;   
+	 winner = playerName;
+	 break;
 	}
 
 	cout << "Enemy now attacks the player dealing " << attackDmg << "dmg\n";
@@ -45,4 +46,4 @@ int main (){
 	cout << winner << " is victorius"; 
 	return 0;
 
-}
+} 
