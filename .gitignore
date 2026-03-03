@@ -1,0 +1,7 @@
+# Object Files
+*.o
+
+# Compiled Binary
+game
+
+
