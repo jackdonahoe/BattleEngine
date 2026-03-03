@@ -1,49 +1,20 @@
 #include <iostream>
-#include <string>
-
-using namespace std;
-int main (){
-
-    int playerHealth;
-    int enemyHealth;
-
-    int attackDmg = 20;
-    string playerName;
-    string winner = "Enemy";
-
-    cout << "Trainer, what is your name?\n";
-    cin >> playerName;
-
-    cout << "Please choose your starting health: \n";
-    cin >> playerHealth;
-
-    cout << "Please choose the enemies starting health: \n";
-    cin >> enemyHealth;
+#include "Battle.h"
 
 
+int main(){
 
-    cout << "\nHello " <<  playerName << " get ready for a battle, you're up first \n";
-    
+    Fighter player("Pikachu", 30, 6);
+    Fighter enemy("Magikarp", 25, 2);
 
-    while((playerHealth > 0)&&(enemyHealth > 0)){
-    
-	cout << "" << playerName << " attacks the enemy dealing " << attackDmg << "dmg\n";
-	enemyHealth -= attackDmg;
-	cout << "Enemy is now at " << enemyHealth << endl;    
-	
-	if(enemyHealth <= 0){
-	 winner = playerName;
-	 break;
-	}
+    BattleResult result = Battle::run(player, enemy);
 
-	cout << "Enemy now attacks the player dealing " << attackDmg << "dmg\n";
-	playerHealth -= attackDmg;
-	cout << "PlayerHealth = " << playerHealth << "\tEnemyHealth = " << enemyHealth << endl; 
-
-
+    std::cout << "And the winner is...\n";
+    if(result == BattleResult::Player){
+	std::cout << player.getName();
+    }else{
+	std::cout << enemy.getName();
     }
-    
-	cout << winner << " is victorius"; 
-	return 0;
 
-} 
+    return 0;
+}
