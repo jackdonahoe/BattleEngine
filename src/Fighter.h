@@ -2,6 +2,8 @@
 #define FIGHTER_H
 
 #include <string>
+#include "Move.h"
+#include <vector>
 
 class Fighter {
 
@@ -10,6 +12,8 @@ class Fighter {
 	int maxHealth;
 	int currentHealth;
 	int atkDmg;
+	std::vector<Move> moves;
+
     public:
 	Fighter(const std::string &name, int maxHealth, int atkDmg);
 
@@ -18,6 +22,7 @@ class Fighter {
 	int getAttackDamage() const;
 	bool isAlive() const;
 	void takeDamage(int amount);
+	const std::vector<Move>& getMoves() const;
 
 
 
