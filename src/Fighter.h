@@ -12,6 +12,7 @@ class Fighter {
 	int maxHealth;
 	int currentHealth;
 	int atkDmg;
+	int healAmount;
 	std::vector<Move> moves;
 
     public:
@@ -23,10 +24,10 @@ class Fighter {
 	bool isAlive() const;
 	void takeDamage(int amount);
 	const std::vector<Move>& getMoves() const;
-
+	void heal(int amount);
 
 
 	
-};
+}; 
 
 #endif
