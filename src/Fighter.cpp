@@ -13,18 +13,6 @@ Fighter::Fighter(const std::string &name, int maxHealth, int atkDmg)
     doNothing.power = 0;
     doNothing.type = MoveType::None;
     moves.push_back(doNothing);
-
-    Move attackMove;
-    attackMove.name = "Attack";
-    attackMove.power = atkDmg;
-    attackMove.type = MoveType::Damage;
-    moves.push_back(attackMove);
-
-    Move heal;
-    heal.name = "Heal";
-    heal.power = healAmount;
-    heal.type = MoveType::Heal; 
-    moves.push_back(heal);
     
 }
 
@@ -65,6 +53,9 @@ const std::vector<Move>& Fighter::getMoves() const{
     return moves;
 }
 
+void Fighter::addMove(const Move& move){
+    moves.push_back(move);
+}
 
 
 

@@ -1,11 +1,17 @@
 #include <iostream>
 #include "Battle.h"
+#include "MoveLibrary.h"
 
 
 int main(){
 
     Fighter player("Pikachu", 30, 6);
+    player.addMove(Moves::Thunderbolt);
+    player.addMove(Moves::Heal);
+
+
     Fighter enemy("Magikarp", 25, 2);
+    enemy.addMove(Moves::Splash);
 
     BattleResult result = Battle::run(player, enemy);
 
