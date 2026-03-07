@@ -54,6 +54,10 @@ void Fighter::addMove(const Move& move){
     moves.push_back(move);
 }
 
+ElementalType Fighter::getType() const{
+    return type;
+}
+
 
 
 

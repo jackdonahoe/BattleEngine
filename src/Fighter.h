@@ -24,7 +24,7 @@ class Fighter {
 	const std::vector<Move>& getMoves() const;
 	void heal(int amount);
 	void addMove(const Move& move);
-
+	ElementalType getType() const;
 
 	
 }; 

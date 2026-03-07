@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17
 
 TARGET = game
-SRC = src/main.cpp src/Fighter.cpp src/Battle.cpp src/MoveLibrary.cpp
+SRC = src/main.cpp src/Fighter.cpp src/Battle.cpp src/MoveLibrary.cpp src/TableChart.cpp
 OBJ = $(SRC:.cpp=.o)
 
 $(TARGET): $(OBJ)

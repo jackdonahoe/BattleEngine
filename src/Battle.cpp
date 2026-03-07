@@ -1,4 +1,5 @@
 #include "Battle.h"
+#include "TableChart.h"
 #include <iostream>
 #include <limits>
 
@@ -65,6 +66,7 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 
     const std::vector<Move>& enemyMoves = enemy.getMoves();
     int turn = 1;
+    int damage;
 
     printBattleHeader(player, enemy);
 
@@ -82,11 +84,12 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 
 	switch(chosenPlayerMove.behavior){
 	
-	    case BehaviorType::Damage:
+	    case BehaviorType::Damage:	
+		damage = calculateDamage(chosenPlayerMove, player, enemy);
 		std::cout << player.getName() << " uses " << 
 		chosenPlayerMove.name << " and deals " << 
-		chosenPlayerMove.power << " dmg\n";
-		enemy.takeDamage(chosenPlayerMove.power);
+		damage << " dmg\n";
+		enemy.takeDamage(damage);
 		break;
 
 	    case BehaviorType::Heal:
@@ -109,9 +112,10 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 
 
 	int enemyMoveIndex = 1;
+	damage = calculateDamage(enemyMoves[enemyMoveIndex], enemy, player);
 	std::cout << enemy.getName() << " uses " << enemyMoves[enemyMoveIndex].name <<
-	    " and deals " << enemyMoves[enemyMoveIndex].power << " dmg\n";
-	player.takeDamage(enemyMoves[enemyMoveIndex].power);
+	    " and deals " << damage << " dmg\n";
+	player.takeDamage(damage);
 	turn++;
 
 
