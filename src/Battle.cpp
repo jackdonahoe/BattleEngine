@@ -80,23 +80,23 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 	const Move& chosenPlayerMove = promptPlayerMove(player);
 
 
-	switch(chosenPlayerMove.type){
+	switch(chosenPlayerMove.behavior){
 	
-	    case MoveType::Damage:
+	    case BehaviorType::Damage:
 		std::cout << player.getName() << " uses " << 
 		chosenPlayerMove.name << " and deals " << 
 		chosenPlayerMove.power << " dmg\n";
 		enemy.takeDamage(chosenPlayerMove.power);
 		break;
 
-	    case MoveType::Heal:
+	    case BehaviorType::Heal:
 		player.heal(chosenPlayerMove.power);
 		std::cout << player.getName() << " uses " <<
 		chosenPlayerMove.name << " and heals " <<
 		chosenPlayerMove.power << " HP\n";
 		break;
 
-	    case MoveType::None:
+	    case BehaviorType::None:
 		std::cout << player.getName() << " does nothing\n";
 		break;
 	}

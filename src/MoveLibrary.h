@@ -6,9 +6,14 @@
 
 namespace Moves{
     extern Move Heal;
-    extern Move Thunderbolt;
-    extern Move Splash;
 
+    extern Move Ember;
+    extern Move Scratch;
+
+    extern Move WaterGun;
+    extern Move Tackle;
+
+    extern Move VineWhip;
 }
  
 

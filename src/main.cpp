@@ -5,13 +5,15 @@
 
 int main(){
 
-    Fighter player("Pikachu", 30, 6);
-    player.addMove(Moves::Thunderbolt);
+    Fighter player("Squirtle", 50, ElementalType::Water);
+    player.addMove(Moves::Tackle);
+    player.addMove(Moves::WaterGun);
     player.addMove(Moves::Heal);
 
-
-    Fighter enemy("Magikarp", 25, 2);
-    enemy.addMove(Moves::Splash);
+    Fighter enemy("Charmander", 50, ElementalType::Fire);
+    enemy.addMove(Moves::Scratch);
+    enemy.addMove(Moves::Ember);
+    enemy.addMove(Moves::Heal);
 
     BattleResult result = Battle::run(player, enemy);
 

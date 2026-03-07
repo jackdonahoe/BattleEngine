@@ -1,17 +1,17 @@
 #include "Fighter.h"
 
-Fighter::Fighter(const std::string &name, int maxHealth, int atkDmg) 
+Fighter::Fighter(const std::string &name, int maxHealth, ElementalType type) 
     : name(name), 
     maxHealth(maxHealth), 
-    currentHealth(maxHealth), 
-    atkDmg(atkDmg)   
+    currentHealth(maxHealth),
+    type(type)
 {
-    healAmount = 10;
 
     Move doNothing;
     doNothing.name = "Do Nothing";
     doNothing.power = 0;
-    doNothing.type = MoveType::None;
+    doNothing.behavior = BehaviorType::None;
+    doNothing.element = ElementalType::Normal;
     moves.push_back(doNothing);
     
 }
@@ -24,9 +24,6 @@ int Fighter::getCurrentHealth() const{
     return currentHealth;
 }
 
-int Fighter::getAttackDamage() const{
-    return atkDmg;
-}
 
 bool Fighter::isAlive() const{
     return currentHealth > 0;

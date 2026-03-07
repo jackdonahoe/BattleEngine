@@ -3,15 +3,15 @@
 
 #include <string>
 
-enum class MoveType{ None, Damage, Heal };
-
+enum class BehaviorType{ None, Damage, Heal };
+enum class ElementalType{ Normal, Water, Fire, Grass };
 
 struct Move{
 
     std::string name;
     int power;
-    MoveType type;
-
+    BehaviorType behavior;
+    ElementalType element;
 
 }; 
 

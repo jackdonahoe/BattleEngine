@@ -11,16 +11,14 @@ class Fighter {
 	std::string name;
 	int maxHealth;
 	int currentHealth;
-	int atkDmg;
-	int healAmount;
 	std::vector<Move> moves;
+	ElementalType type;
 
     public:
-	Fighter(const std::string &name, int maxHealth, int atkDmg);
+	Fighter(const std::string &name, int maxHealth, ElementalType type);
 
 	const std::string &getName() const;  
 	int getCurrentHealth() const;
-	int getAttackDamage() const;
 	bool isAlive() const;
 	void takeDamage(int amount);
 	const std::vector<Move>& getMoves() const;
