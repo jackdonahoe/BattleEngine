@@ -66,7 +66,7 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 
     const std::vector<Move>& enemyMoves = enemy.getMoves();
     int turn = 1;
-    int damage;
+    DamageResult damage;
 
     printBattleHeader(player, enemy);
 
@@ -88,8 +88,10 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 		damage = calculateDamage(chosenPlayerMove, player, enemy);
 		std::cout << player.getName() << " uses " << 
 		chosenPlayerMove.name << " and deals " << 
-		damage << " dmg\n";
-		enemy.takeDamage(damage);
+		damage.damage << " dmg\n";
+		if(damage.effectiveness > 1.0) std::cout << "It's super effective!\n";
+		if(damage.effectiveness < 1.0) std::cout << "It's super effective!\n";
+		enemy.takeDamage(damage.damage);
 		break;
 
 	    case BehaviorType::Heal:
@@ -111,11 +113,13 @@ BattleResult Battle::run(Fighter& player, Fighter& enemy){
 	}
 
 
-	int enemyMoveIndex = 1;
+	int enemyMoveIndex = 2;
 	damage = calculateDamage(enemyMoves[enemyMoveIndex], enemy, player);
 	std::cout << enemy.getName() << " uses " << enemyMoves[enemyMoveIndex].name <<
-	    " and deals " << damage << " dmg\n";
-	player.takeDamage(damage);
+	    " and deals " << damage.damage << " dmg\n";
+    	if(damage.effectiveness > 1.0) std::cout << "It's super effective!\n";
+    	if(damage.effectiveness < 1.0) std::cout << "It's not very effective!\n";
+	player.takeDamage(damage.damage);
 	turn++;
 
 
