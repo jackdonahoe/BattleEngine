@@ -4,7 +4,7 @@
 #include <string>
 
 enum class BehaviorType{ None, Damage, Heal };
-enum class ElementalType{ Normal, Water, Fire, Grass };
+enum class ElementalType{ Normal, Water, Fire, Grass }; 
 
 struct Move{
 
@@ -12,6 +12,7 @@ struct Move{
     int power;
     BehaviorType behavior;
     ElementalType element;
+    //double accuracy;
 
 }; 
 
