@@ -8,14 +8,18 @@
 class Fighter {
 
     private:
+
 	std::string name;
 	int maxHealth;
-	int currentHealth;
-	std::vector<Move> moves;
+	int defense;
 	ElementalType type;
 
+
+	int currentHealth;
+	std::vector<Move> moves;
+
     public:
-	Fighter(const std::string &name, int maxHealth, ElementalType type);
+	Fighter(const std::string &name, int maxHealth, int defense, ElementalType type);
 
 	const std::string &getName() const;  
 	int getCurrentHealth() const;
@@ -25,6 +29,7 @@ class Fighter {
 	void heal(int amount);
 	void addMove(const Move& move);
 	ElementalType getType() const;
+	int getDefense() const;
 
 	
 }; 
