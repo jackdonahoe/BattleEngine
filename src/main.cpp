@@ -5,12 +5,15 @@
 
 int main(){
 
-    Fighter player("Squirtle", 50, ElementalType::Water);
+    //FIGHTER OBJECT : (NAME, MAX HEALTH, DEFENSE, ELEMENTAL_TYPE)
+    
+    
+    Fighter player("Squirtle", 110, 25, ElementalType::Water);
     player.addMove(Moves::Tackle);
     player.addMove(Moves::WaterGun);
     player.addMove(Moves::Heal);
 
-    Fighter enemy("Charmander", 50, ElementalType::Fire);
+    Fighter enemy("Charmander", 95, 15, ElementalType::Fire);
     enemy.addMove(Moves::Scratch);
     enemy.addMove(Moves::Ember);
     enemy.addMove(Moves::Heal);

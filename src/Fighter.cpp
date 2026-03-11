@@ -1,10 +1,12 @@
 #include "Fighter.h"
 
-Fighter::Fighter(const std::string &name, int maxHealth, ElementalType type) 
+Fighter::Fighter(const std::string &name, int maxHealth, int defense, ElementalType type) 
     : name(name), 
-    maxHealth(maxHealth), 
-    currentHealth(maxHealth),
-    type(type)
+    maxHealth(maxHealth),
+    defense(defense),
+    type(type),
+    currentHealth(maxHealth)
+
 {
 
     Move doNothing;
@@ -13,7 +15,7 @@ Fighter::Fighter(const std::string &name, int maxHealth, ElementalType type)
     doNothing.behavior = BehaviorType::None;
     doNothing.element = ElementalType::Normal;
     moves.push_back(doNothing);
-    
+
 }
 
 const std::string& Fighter::getName() const{
@@ -44,6 +46,10 @@ void Fighter::heal(int amount){
     if(currentHealth > maxHealth){
 	currentHealth = maxHealth;
     }
+}
+
+int Fighter::getDefense() const{
+    return defense;
 }
 
 const std::vector<Move>& Fighter::getMoves() const{

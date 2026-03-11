@@ -21,15 +21,19 @@ double getEffectiveness(ElementalType attackerMove, ElementalType defender){
 
 DamageResult calculateDamage(const Move& move, const Fighter& attacker, const Fighter& defender){
     //Defined random seed at first fuction call
-    static std::random_device rd;
+    static std::random_device rd; 
     static std::mt19937 rng(rd());
     static std::uniform_real_distribution<double> dist(0.85, 1.0);
     double randomMult = dist(rng);
     double typeMult = getEffectiveness(move.element, defender.getType());
     double damage = move.power;
+    double defense = defender.getDefense();
     damage *= typeMult;
     damage *= randomMult;
-    if(damage <= 1) return {1, 1.0};
+    damage *= (100 / (100 + defense));
+
+
+    if(damage <= 1) return {1, typeMult};
     return {static_cast<int>(damage), typeMult};
 }
 
